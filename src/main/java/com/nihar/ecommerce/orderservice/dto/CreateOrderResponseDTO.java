@@ -8,7 +8,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderResponseDTO {
+public class CreateOrderResponseDTO {
     private Long orderId;
     private OrderStatus status;
 }

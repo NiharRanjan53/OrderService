@@ -1,14 +1,24 @@
 package com.nihar.ecommerce.orderservice.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.nihar.ecommerce.orderservice.dto.CreateOrderResponseDTO;
+import com.nihar.ecommerce.orderservice.dto.OrderRequestDTO;
+import com.nihar.ecommerce.orderservice.services.IOrderService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
-    @GetMapping
-    public String hello(){
-        return "Hello";
+    private final IOrderService orderService;
+
+    public OrderController(IOrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    @PostMapping
+    ResponseEntity<CreateOrderResponseDTO> createOrder(@RequestBody OrderRequestDTO request){
+
+        return ResponseEntity.ok(orderService.createOrder(request));
+
     }
 }

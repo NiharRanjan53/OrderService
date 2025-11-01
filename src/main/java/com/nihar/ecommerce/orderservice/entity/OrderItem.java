@@ -17,8 +17,8 @@ public class OrderItem extends  BaseEntity{
 
     private Long productId;
     private int quantity;
-    private Long pricePerUnit;
-    private Long totalPrice;
+    private double pricePerUnit;
+    private double totalPrice;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
